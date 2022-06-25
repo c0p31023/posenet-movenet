@@ -1,6 +1,7 @@
 
 let video;
 let poseNet;
+let keypoint
 let poses = [];
 
 function setup() {
@@ -39,7 +40,7 @@ function drawKeypoints()  {
     let pose = poses[i].pose;
     for (let j = 0; j < pose.keypoints.length; j++) {
       // A keypoint is an object describing a body part (like rightArm or leftShoulder)
-      let keypoint = pose.keypoints[j];
+      keypoint = pose.keypoints[j];
     }
 }
 }
