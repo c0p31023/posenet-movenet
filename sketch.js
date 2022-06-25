@@ -1,7 +1,7 @@
 
 let video;
 let poseNet;
-let keypoint
+let keypoint;
 let poses = [];
 
 function setup() {
