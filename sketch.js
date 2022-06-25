@@ -45,7 +45,7 @@ function drawKeypoints()  {
 }
 
 //to draw the skeletonsfunction
-function drawskeleton() {
+function drawSkeleton() {
     //Loop through all the skeletons detected
 	for (let i = 0; i < poses.length; i++) {
 		let skeleton = poses[i].skeleton;
