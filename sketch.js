@@ -25,7 +25,39 @@ function draw() {
    // drawSkeleton();
 }
 
+function drawKeypoints() {
+    for (let i = 0; i < poses.length; i++) {
+      
+        let pose = poses[i].pose;
+        for (let j = 0; j < pose.keypoints.length; j++) {
 
+            let point = pose.keypoints[j];
+            if (point.score > 0.2) {
+                
+                FileList(0,0,255);
+                noStroke();
+
+                ellipse(point.position.x, point.position.y, 10, 10);
+            }
+            
+        }
+        
+    }
+}
+
+function drawSkeleton() {
+  // Loop through all the skeletons detected
+  for (let i = 0; i < poses.length; i++) {
+    let skeleton = poses[i].skeleton;
+    // For every skeleton, loop through all body connections
+    for (let j = 0; j < skeleton.length; j++) {
+      let partA = skeleton[j][0];
+      let partB = skeleton[j][1];
+      stroke(255, 0, 0);
+      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
+    }
+  }
+}
 
 /*
 function setup() {
