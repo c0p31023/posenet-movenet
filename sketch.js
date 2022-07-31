@@ -93,7 +93,7 @@ if ('speechSynthesis' in window) {
   uttr.pitch = 0.9
 
   // 音量を設定
-  uttr.volume = 2
+  uttr.volume = 1
 
   // 発言を再生
   window.speechSynthesis.speak(uttr)
