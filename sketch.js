@@ -1,9 +1,10 @@
+
 let canvas;
 let video;
 let poseNet;
 let keypoint;
 let poses = [];
-
+let sound_btn = document.getElementById('button');
 function setup() {
   canvas = createCanvas(640, 480);
   canvas.parent('canvas');
@@ -19,6 +20,7 @@ function setup() {
   });
   // video 要素を非表示にして、canvas だけを表示します
   video.hide();
+
 }
 /*
 function modelReady() {
@@ -27,15 +29,16 @@ function modelReady() {
 */
 function draw() {
   image(video, 0, 0, width, height);
-
+  if (poses.length > 0) {
   // 両方の関数を呼び出すことで、すべてのキーポイントとスケルトンを描画することができます
   drawKeypoints();
   drawSkeleton();
+  }
 }
 
 // 検出されたキーポイントの上に楕円を描画する関数
 function drawKeypoints()  {
-  if (poses.length > 0) {
+  //if (poses.length > 0) {
   console.log(poses);
   // 検出されたすべてのポーズをループする
   for (let i = 0; i < poses.length; i++) {
@@ -52,7 +55,7 @@ function drawKeypoints()  {
       }
      }
     }
-   }
+   //}
   }
 
 // 骨格を描画するための関数
@@ -69,3 +72,54 @@ function drawSkeleton() {
 		}
 	}
 }
+
+if ('speechSynthesis' in window) {
+
+  sound_btn.addEventListener('click', function(){
+
+  // 発言を設定（必須）
+  const uttr = new SpeechSynthesisUtterance()
+
+  // テキストを設定 (必須)
+  uttr.text = "体が反りすぎています"
+
+  // 言語を設定
+  uttr.lang = "ja-JP"
+
+  // 速度を設定
+  uttr.rate = 1
+
+  // 高さを設定
+  uttr.pitch = 0.9
+
+  // 音量を設定
+  uttr.volume = 2
+
+  // 発言を再生
+  window.speechSynthesis.speak(uttr)
+
+  });
+
+} else {
+  alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+}
+
+/*
+
+・使用しているライブラリ
+
+　　p5.min.js　：　アーティスト、デザイナー、教育者、初心者、その他誰にとってもコーディングにアクセスしやすく、包括的にすることに重点を置いた、クリエイティブコーディングのためのJavaScriptライブラリ
+            p5.min.jsの「min」は軽量化されたファイルであることを示している
+	    
+ p5.dom.js　：　p5,jsの拡張機能的なライブラリ
+
+　　ml5.min.js　：　アーティストやクリエィティブ・コーダー、学生などの幅広いユーザーが機械学習を親しみやすく触れるられるように作られたライブラリ
+             ml5.min.jsの「min」は軽量化されたファイルであることを示している
+	     
+・関数の呼び出し順（ライブラリから呼び出した関数は一旦考えない）
+
+　　setup()　→　modelReady() → draw() → drawKeypoints() → drawSkeleton()
+  
+ 
+
+*/
