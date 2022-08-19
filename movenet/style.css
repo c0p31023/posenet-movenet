@@ -1,0 +1,21 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+h1 {
+  text-align: center;
+}
+
+h3, h4 {
+  text-align: center;
+}
+
+#canvas {
+    text-align: center;
+  }
+
+* {
+    font-family: sans-serif;
+}
