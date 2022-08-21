@@ -89,7 +89,7 @@ async function setup() {
   canvas = createCanvas(640, 480);
   video = createCapture(VIDEO, videoReady);
   canvas.parent('canvas');
-  //video.size(640, 480);
+  video.size(640, 480);
   video.parent('canvas');
   /*createCanvas(640, 480);
   video = createCapture(VIDEO, videoReady);*/
