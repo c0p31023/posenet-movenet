@@ -89,7 +89,7 @@ async function setup() {
   canvas = createCanvas(640, 480);
   video = createCapture(VIDEO, videoReady);
   canvas.parent('canvas');
-  video.size(640, 480);
+  //video.size(640, 480);
   video.parent('canvas');
   /*createCanvas(640, 480);
   video = createCapture(VIDEO, videoReady);*/
@@ -101,7 +101,7 @@ async function setup() {
 
 function draw() {
   /*background(220);
-  image(video, 0, 0, 640, 480);*/
+  image(video, 0, 0, video.width, video.height);*/
   image(video, 0, 0, video.width, video.height);
   if (poses && poses.length > 0) {
     drawKeypoints();
