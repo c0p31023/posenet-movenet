@@ -123,7 +123,7 @@ if ('speechSynthesis' in window) {
   uttr.lang = "ja-JP"
 
   // 速度を設定
-  uttr.rate = 1.3
+  uttr.rate = 1
 
   // 高さを設定
   uttr.pitch = 0.9
