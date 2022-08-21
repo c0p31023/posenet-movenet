@@ -39,7 +39,7 @@ async function videoReady() {
 
 async function getPoses() {
   poses = await detector.estimatePoses(video.elt);
-  //console.log(poses);
+  console.log(poses);
   setTimeout(getPoses, 0);
 }
 
@@ -101,7 +101,6 @@ async function setup() {
 
 function draw() {
   /*background(220);
-  image(video, 0, 0, video.width, video.height);*/
   image(video, 0, 0, video.width, video.height);
   if (poses && poses.length > 0) {
     drawKeypoints();
