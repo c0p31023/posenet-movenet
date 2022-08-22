@@ -87,12 +87,16 @@ function drawKeypoints()  {
 
 async function setup() {
   canvas = createCanvas(640, 480);
-  video = createCapture(VIDEO, videoReady);
+  video = {
+    video: {
+            width: 640,
+            height: 480,
+    },
+    audio: false
+  };
+  video = createCapture(video, videoReady);
   canvas.parent('canvas');
-  //video.size(640, 480);
   video.parent('canvas');
-  /*createCanvas(640, 480);
-  video = createCapture(VIDEO, videoReady);*/
   video.hide();
   await init();
 
@@ -101,7 +105,8 @@ async function setup() {
 
 function draw() {
   /*background(220);*/
-  image(video, 0, 0, video.width, video.height);
+  let img = video.get();
+  image(img, 0, 0, width, height);
   if (poses && poses.length > 0) {
     drawKeypoints();
     drawSkeleton();
