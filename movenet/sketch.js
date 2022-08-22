@@ -39,7 +39,6 @@ async function videoReady() {
 
 async function getPoses() {
   poses = await detector.estimatePoses(video.elt);
-  console.log(poses);
   setTimeout(getPoses, 0);
 }
 
@@ -104,7 +103,6 @@ async function setup() {
 }
 
 function draw() {
-  /*background(220);*/
   let img = video.get();
   image(img, 0, 0, width, height);
   if (poses && poses.length > 0) {
