@@ -85,11 +85,11 @@ function drawKeypoints()  {
 }
 
 async function setup() {
-  canvas = createCanvas(640, 480);
+  canvas = createCanvas(1280, 720);
   video = {
     video: {
-            width: 640,
-            height: 480,
+            width: 1280,
+            height: 720,
     },
     audio: false
   };
